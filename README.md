@@ -1,89 +1,212 @@
-AeroCast — Modern Java Weather Dashboard
-An ultra-modern, high-performance Weather Dashboard application powered by a Java 21 backend and a glassmorphism web interface.
+# 🌦️ AeroCast — Modern Java Weather Dashboard
 
-AeroCast Weather Dashboard
+[![Java Version](https://img.shields.io/badge/Java-21%2B-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://openjdk.org/)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
+[![Dependencies](https://img.shields.io/badge/Dependencies-Zero%20External-success?style=for-the-badge)](#-technology-stack)
+[![API](https://img.shields.io/badge/Data%20Source-Open--Meteo-00B4D8?style=for-the-badge)](https://open-meteo.com/)
 
-🌟 Key Features
-Java 21 Embedded Server: Uses Java SE com.sun.net.httpserver.HttpServer with Virtual Threads and java.net.http.HttpClient. Zero third-party Maven/Gradle dependencies needed!
-Real-Time Weather Metrics: Current temperature, apparent "Feels like", humidity, wind speed & compass direction, UV index with color-coded safety level, atmospheric pressure, visibility, dew point, and cloud cover.
-Dynamic Atmospheric Particle Effects: Real-time canvas particle engine simulating rainfall streaks with splashes, drifting snowflakes, floating misty clouds, golden sunlight rays, starfield night sky, and thunderstorm lightning flashes.
-Global City Search with Instant Autocomplete: Debounced search for any city, town, or region worldwide with country flags and coordinates.
-HTML5 Geolocation: 1-click "Locate Me" button to detect device GPS coordinates and display local weather.
-24-Hour Hourly Forecast: Interactive scrollable hourly carousel and smooth interactive Bezier curve temperature chart.
-7-Day Extended Forecast: Daily high/low visual temperature range bars, weather condition icons, and precipitation probability badges.
-Air Quality Index (AQI): US AQI calculation and micro-pollutant metrics (
-P
-M
-2.5
-, 
-P
-M
-10
-, 
-N
-O
-2
-, 
-O
-3
-, 
-C
-O
-, 
-S
-O
-2
-).
-Solar Arc & Sun Tracker: Real-time sun trajectory arc displaying exact sunrise, sunset, daylight remaining countdown, and golden hour.
-Interactive Weather Map: Embedded Leaflet map centered on the active location.
-Instant Unit Switching: Seamless toggle between Metric (°C, km/h, mm, hPa) and Imperial (°F, mph, in, inHg).
-Pinned Favorite Cities: Save and bookmark favorite locations with quick-access chips and local persistence (favorites.json).
-Smart Weather Advisories: Contextual safety alerts and lifestyle tips (e.g., UV protection, umbrella reminders, outdoor workout ratings).
-🚀 Getting Started
-Prerequisites
-Java 21 SE or higher (java and javac in PATH).
-Running on Windows
-Double-click run.bat or run:
+An ultra-modern, lightning-fast **Weather Dashboard & Forecasting System** powered by a **Java 21 backend** and a glassmorphism web interface with real-time dynamic atmospheric canvas particle effects.
 
+---
+
+## 🌟 Key Features
+
+- ⚡ **Java 21 Virtual Threads**: High-throughput embedded HTTP server (`com.sun.net.httpserver.HttpServer`) running on Project Loom virtual threads (`Executors.newVirtualThreadPerTaskExecutor()`). Zero Maven/Gradle bloat or external jar dependencies!
+- 🌧️ **Dynamic Particle Engine**: Realistic real-time 2D canvas effects tailored to current weather conditions — rainfall with splash physics, floating misty clouds, drifting snowflakes, golden sunlight beams, twinkling night stars, and thunderstorm lightning flashes.
+- 🌡️ **Comprehensive Weather Metrics**: Current temperature, apparent "Feels like", humidity, wind speed & compass direction, UV index with color-coded safety badges, atmospheric pressure, visibility, dew point, and cloud cover.
+- 🕒 **24-Hour Hourly Forecast**: Interactive scrollable carousel with condition icons, precipitation probabilities, and smooth interactive Bezier curve temperature charts.
+- 📅 **7-Day Extended Forecast**: Daily high/low temperature range bars, weather condition icons, and rain probability indicators.
+- 🍃 **Air Quality Index (AQI)**: Detailed US AQI assessment with color-coded health warning ratings and pollutant metrics ($PM_{2.5}$, $PM_{10}$, $NO_2$, $O_3$, $CO$, $SO_2$).
+- ☀️ **Solar Arc & Sun Tracker**: Real-time celestial trajectory displaying sunrise, sunset, daylight remaining countdown, and golden hour markers.
+- 🗺️ **Interactive Radar & Map**: Embedded Leaflet map centered dynamically on the selected location with interactive layer controls.
+- 🔍 **Instant City Search & Autocomplete**: Debounced search for any city, town, or region worldwide with country flags and coordinates, plus built-in offline fallback for major global cities.
+- 📍 **HTML5 Geolocation**: 1-click GPS location detection to display local weather instantly.
+- 🔄 **Seamless Unit Conversion**: Instant toggle between Metric (°C, km/h, mm, hPa) and Imperial (°F, mph, in, inHg) units with state retention.
+- ⭐ **Pinned Favorites**: Bookmark favorite locations with quick-access chips and persistent local storage (`favorites.json`).
+- 💡 **Smart Weather Advisories**: Context-aware lifestyle alerts (UV protection alerts, umbrella reminders, outdoor activity recommendations).
+
+---
+
+## 🛠️ Technology Stack
+
+| Layer | Technologies Used |
+|---|---|
+| **Backend** | Java 21 SE, `com.sun.net.httpserver.HttpServer`, `java.net.http.HttpClient`, Virtual Threads (Project Loom) |
+| **Frontend** | HTML5 Semantic Elements, Modern CSS3 (Glassmorphism, CSS Custom Properties, Flexbox & Grid), Vanilla JavaScript (ES6+) |
+| **Visual Effects** | HTML5 Canvas 2D Particle Engine (`weather-effects.js`) |
+| **Mapping** | Leaflet.js with OpenStreetMap Tiles |
+| **Data Providers** | [Open-Meteo Weather API](https://open-meteo.com/), Open-Meteo Geocoding API, Open-Meteo Air Quality API |
+| **Dependencies** | **0 Third-Party Java Libraries** (pure Java standard library) |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- **Java Development Kit (JDK) 21 or higher** installed.
+- Ensure `java` and `javac` are available in your system's `PATH`.
+
+```bash
+# Verify your Java version
+java -version
+```
+
+---
+
+### Running the Application
+
+#### Option 1: Quick Launch (Windows)
+Double-click [`run.bat`](file:///c:/Users/arjun/Downloads/weather-dashboard-java/run.bat) or run via PowerShell:
+```powershell
 .\run.ps1
-Or run manually with Java commands:
+```
 
-# 1. Compile Java files
-javac -d bin src/com/weather/*.java
+#### Option 2: Command Line (Cross-Platform)
 
-# 2. Run the application
-java -cp bin com.weather.Main 8080
-Once started, open your browser and navigate to:
+1. **Compile the Java sources:**
+   ```bash
+   javac -encoding UTF-8 -d bin src/com/weather/*.java
+   ```
 
-http://localhost:8080
-📁 Project Structure
+2. **Run the server:**
+   ```bash
+   java -cp bin com.weather.Main 8080
+   ```
+
+3. **Access the Dashboard:**
+   Open your browser and navigate to:
+   ```
+   http://localhost:8080
+   ```
+
+> [!TIP]
+> You can pass a custom port as an argument:
+> `java -cp bin com.weather.Main 9090`
+
+---
+
+## 📁 Project Structure
+
+```
 weather-dashboard-java/
-├── bin/                       # Compiled Java bytecode
-├── public/                    # Static Frontend Assets
+├── bin/                          # Compiled Java bytecode (.class files)
+├── public/                       # Frontend Static Web Application
 │   ├── css/
-│   │   └── style.css          # Glassmorphism Design System & Weather Themes
+│   │   └── style.css             # Glassmorphism UI tokens, layout & responsive themes
 │   ├── js/
-│   │   ├── app.js             # Client UI Controller & Open-Meteo Integration
-│   │   └── weather-effects.js # Canvas Particle & Atmospheric Engine
-│   └── index.html             # Semantic Dashboard Layout
+│   │   ├── app.js                # Core dashboard logic, state management & UI rendering
+│   │   └── weather-effects.js    # Canvas particle engine (rain, snow, clouds, sunbeams)
+│   └── index.html                # Main semantic dashboard layout
 ├── src/
 │   └── com/
 │       └── weather/
-│           ├── Main.java             # Entry point & Browser launcher
-│           ├── WeatherServer.java    # Embedded HTTP server & REST endpoints
-│           ├── WeatherService.java   # Open-Meteo & Air Quality API Client + Caching
-│           └── FavoritesService.java # Bookmarked locations manager
-├── favorites.json             # Persistent favorites storage
-├── run.bat                    # 1-click Windows batch launcher
-├── run.ps1                    # PowerShell launcher
-└── README.md                  # Documentation
-📡 REST API Endpoints
-Endpoint	Method	Description
-GET /	GET	Serves the dashboard web app
-GET /api/health	GET	Health check & cache statistics
-GET /api/search?q={query}	GET	Geocoding city search
-GET /api/weather?lat={lat}&lon={lon}&tz={tz}	GET	Full weather & air quality payload
-GET /api/favorites	GET	Retrieve list of saved favorite cities
-POST /api/favorites	POST	Update list of saved favorite cities
-📄 License
-MIT License. Free to use and customize.
+│           ├── Main.java             # Server bootstrapper & auto-browser launcher
+│           ├── WeatherServer.java    # Embedded HTTP server & REST endpoint routes
+│           ├── WeatherService.java   # Open-Meteo API integration & in-memory cache
+│           └── FavoritesService.java # Bookmark manager with JSON persistence
+├── favorites.json                # Saved favorite locations
+├── run.bat                       # Windows Batch script launcher
+├── run.ps1                       # Windows PowerShell launcher
+├── test_endpoints.ps1            # Automated REST API endpoint verification script
+└── README.md                     # Project documentation
+```
+
+---
+
+## 📡 REST API Documentation
+
+The backend exposes lightweight REST endpoints consumed by the frontend client:
+
+### 1. Health Check
+```http
+GET /api/health
+```
+**Response:**
+```json
+{
+  "status": "UP",
+  "cacheSize": 4,
+  "javaVersion": "21.0.2"
+}
+```
+
+---
+
+### 2. City Geocoding Search
+```http
+GET /api/search?q={query}
+```
+**Parameters:**
+- `q` (required): Name or prefix of city/location (e.g. `London`, `Tokyo`, `New York`).
+
+**Sample Response:**
+```json
+[
+  {
+    "id": 2643743,
+    "name": "London",
+    "country": "United Kingdom",
+    "admin1": "England",
+    "country_code": "GB",
+    "latitude": 51.50853,
+    "longitude": -0.12574,
+    "timezone": "Europe/London"
+  }
+]
+```
+
+---
+
+### 3. Weather & Air Quality Data
+```http
+GET /api/weather?lat={latitude}&lon={longitude}&tz={timezone}
+```
+**Parameters:**
+- `lat` (required): Latitude coordinate (e.g. `51.5085`).
+- `lon` (required): Longitude coordinate (e.g. `-0.1257`).
+- `tz` (optional): IANA timezone string (default: `auto`).
+
+**Sample Response Structure:**
+```json
+{
+  "current": { ... },
+  "hourly": { ... },
+  "daily": { ... },
+  "air_quality": { ... }
+}
+```
+
+---
+
+### 4. Favorites Management
+```http
+GET  /api/favorites
+POST /api/favorites
+```
+- **`GET`**: Returns the list of saved favorite cities.
+- **`POST`**: Accepts a JSON array payload to update saved favorite cities.
+
+---
+
+## 🧪 Testing & Verification
+
+An automated PowerShell verification script is included to test all endpoints:
+
+```powershell
+.\test_endpoints.ps1
+```
+
+---
+
+## ⚙️ Architecture & Design Highlights
+
+- **Zero-Dependency Architecture**: Leverages standard Java libraries for minimal build overhead, fast startup times (< 1 second), and portability across environments.
+- **In-Memory Caching with TTL**: Weather data is cached in memory with a 5-minute Time-To-Live (TTL) to minimize API latency and respect rate limits.
+- **Resilient Fallback**: Includes offline fallback dictionaries for major world cities in case external geocoding services are temporarily unreachable.
+- **Modern Responsive UI**: Built with pure CSS Glassmorphism effects, CSS grid and flexbox, optimized for desktop and mobile viewports.
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
